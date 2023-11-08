@@ -6,13 +6,13 @@
     <title>Money Managment WebAPP</title>
     <link rel="icon" type="image/x-icon" href="Assets/img/appLogo.ico">
     <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Assets/css/index.css">
-    <link rel="stylesheet" href="Assets/css/introduction.css">
+    <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/introduction.css">
 </head>
 <body onload="render('introduction')">
     <div class="main-wrapper">
         <header>
-            <div class="appName" onclick="render('introduction')">
+            <div class="appName" onclick="render('introduction');">
               <img id="appLogo" src="Assets/img/appLogo.png">
               <span id="currentPageName">Pénzügyek kezelése</span>
             </div>
@@ -64,5 +64,6 @@
     <script src="Assets/js/fullcalendar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="Controllers/index.js"></script>
+    <script src="Controllers/introduction.js"></script>
 </body>
 </html>
