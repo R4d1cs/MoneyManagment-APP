@@ -1,0 +1,40 @@
+body {
+    background-color: silver;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    height: 90%;
+
+    background-color: white;
+    box-shadow: 0 0 10px gray;
+    padding: 12px;
+}
+
+header {
+    background-color: slategray;
+    color: white;
+    text-shadow: 0 0 3px black;
+    text-align: center;
+    height: 120px;
+    font-size: 200%;
+    padding: 35px;
+}
+
+footer {
+    color: black;
+    letter-spacing: 3px;
+    font-size: 80%;
+    text-align: center;
+    padding: 10px;
+    opacity: 0.5;
+}
+
+main {
+    padding: 10px;
+}
