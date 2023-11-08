@@ -1,15 +1,30 @@
 body {
-    background-color: silver;
+    background-color: white;
 }
 
-.container {
+body:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('../img/bgMain.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: blur(5px);
+    z-index: -1;
+    scale: 1.2;
+}
+
+.main-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 90%;
-    height: 90%;
+    width: calc(100% - 10rem);
+    height: calc(100% - 10rem);
 
     background-color: white;
     box-shadow: 0 0 10px gray;
@@ -17,13 +32,52 @@ body {
 }
 
 header {
-    background-color: slategray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 4rem;
+
+    font-size: 1rem;
     color: white;
-    text-shadow: 0 0 3px black;
-    text-align: center;
-    height: 120px;
-    font-size: 200%;
-    padding: 35px;
+
+    padding: 1rem 0.5rem;
+    border-radius: 0.3rem;
+    background-color: slategray;
+}
+
+header .appName {
+    display: flex;
+    flex-direction: row;
+
+    gap: 1rem;
+
+    width: 20rem;
+}
+
+header .appName #currentPageName {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+header .appName #appLogo {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 3rem;
+    height: 3rem;
+    aspect-ratio: 1;
+}
+
+header .navbar .nav-link {
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 footer {

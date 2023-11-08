@@ -9,12 +9,49 @@
     <link rel="stylesheet" href="Assets/css/index.css">
 </head>
 <body>
-    <div class="container">
+    <div class="main-wrapper">
         <header>
-            <h1>Pénzügyek kezelése</h1>
+            <div class="appName">
+              <img id="appLogo" src="Assets/img/appLogo.png">
+              <span id="currentPageName">Pénzügyek kezelése</span>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+              <div class="container-fluid">
+                <div id="navbarNav">
+                  <!-- Kijelentkezve -->
+                  <ul class="navbar-nav" id="LoggedOutMenu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="render('login')">Belépés</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="render('register')">Regisztráció</a>
+                    </li>
+                  </ul>
+  
+                  <!-- Belépve -->
+                  <ul class="navbar-nav d-none" id="LoggedInMenu">   
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="render('newdata')">Adatrögzítés</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="render('table'); getStepdatas()">Táblázat</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="render('calendar'); getCalendar()">Naptár</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="render('chart'); getChart()">Grafikon</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="logout()">Kilépés</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
         </header>
         <main>
-          <!-- ide jön mindig az aktuális tartalom -->
+          <!-- Ide jön az berenderelt oldalak tartalma. -->
         </main>
         <footer>
           &copy 2023-2050 Radics Ádám | All rights reserved.
