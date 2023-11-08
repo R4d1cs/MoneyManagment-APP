@@ -7,11 +7,12 @@
     <link rel="icon" type="image/x-icon" href="Assets/img/appLogo.ico">
     <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="Assets/css/index.css">
+    <link rel="stylesheet" href="Assets/css/introduction.css">
 </head>
-<body>
+<body onload="render('introduction')">
     <div class="main-wrapper">
         <header>
-            <div class="appName">
+            <div class="appName" onclick="render('introduction')">
               <img id="appLogo" src="Assets/img/appLogo.png">
               <span id="currentPageName">Pénzügyek kezelése</span>
             </div>
