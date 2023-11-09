@@ -24,9 +24,24 @@ function loginUser() {
         if (res.data.length == 0) {
             showMessage('error', 'Hibás adatokat adtál meg!', 5)
             return
-        } else {
+        }
+
+        showMessage('success', 'Sikeres bejelentkezés!', 7)
+
+        setTimeout(() => {
+            sessionStorage.setItem('customerUser', JSON.stringify(res.data[0]));
             document.location.href = 'index.html'
             getStatistics()
-        }
+        }, 1500)
     })
+}
+
+function logoutUser(){
+    showMessage('success', 'Sikeres kijelentkezés!', 7)
+
+    setTimeout(() => {
+        sessionStorage.removeItem('customerUser')
+        document.location.href = 'index.html'
+        getStatistics()
+    }, 1500)
 }

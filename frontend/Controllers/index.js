@@ -1,5 +1,20 @@
 const serverUrl = 'http://localhost:3000'
 
+let loggedInMenu = document.querySelector('#LoggedInMenu')
+let loggedOutMenu = document.querySelector('#LoggedOutMenu')
+
+loggedUser = JSON.parse(sessionStorage.getItem('customerUser'));
+
+if (loggedUser != null) {
+    loggedInMenu.classList.remove('d-none')
+    loggedOutMenu.classList.add('d-none')
+    render('profile')
+} else {
+    loggedInMenu.classList.add('d-none')
+    loggedOutMenu.classList.remove('d-none')
+    render('login')
+}
+
 async function render(view) {
     const main = document.querySelector("main")
     main.innerHTML = await (await fetch(`Views/${view}.html`)).text()

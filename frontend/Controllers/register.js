@@ -37,6 +37,7 @@ function registerUser() {
 
             axios.post(`${serverUrl}/users`, newUser).then(res => {
                 showMessage('success', 'Sikeres regisztráció!', 7)
+                
                 render('login')
             })
         })
