@@ -4,7 +4,7 @@ async function render(view) {
     const main = document.querySelector("main")
     main.innerHTML = await (await fetch(`Views/${view}.html`)).text()
 
-    getStatistics()
+    if (view == 'introduction') getStatistics()
 }
 
 function showMessage(msg){
