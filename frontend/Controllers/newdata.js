@@ -36,6 +36,8 @@ function addNewData() {
         newType.value = ''
         newAmount.value = ''
         newTag.value = ''
+
+        setTimeout(() => { setBalance() }, 500)
     })
 }
 

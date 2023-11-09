@@ -17,7 +17,7 @@ if (loggedUser != null) {
     loggedInMenu.classList.remove('d-none')
     loggedOutMenu.classList.add('d-none')
     balanceNum.classList.remove('d-none')
-    balanceNum.innerHTML = `${HUF_Egyenleg.format(1500000)}` // Itt a nulla helyett, majd a bevétel és a kiadás eredémnye kell, hogy kerüljön.
+    setBalance()
     pageName.classList.remove('d-none')
     pageName.innerHTML = `(${loggedUser.ID}) ${loggedUser.name}`
 } else {
@@ -33,6 +33,31 @@ async function render(view) {
     main.innerHTML = await (await fetch(`Views/${view}.html`)).text()
 
     if (view == 'introduction') getStatistics()
+}
+
+function setBalance() {
+    let balanceAmount = 0
+    let totalIncome = 0
+    let totalIssuence = 0
+    axios.get(`${serverUrl}/items/userID/eq/${loggedUser.ID}`).then(res => {
+        res.data.forEach(item => {
+            if (item.type.toLowerCase() === 'bevétel') {
+                totalIncome += item.amount
+                return
+            }
+
+            totalIssuence += item.amount
+        })
+        
+        balanceAmount = totalIncome - totalIssuence
+
+        if (balanceAmount < 0) {
+            balanceNum.innerHTML = `<font color='#F6795E'>${HUF_Egyenleg.format(balanceAmount)}</font>`
+            return
+        }
+
+        balanceNum.innerHTML = HUF_Egyenleg.format(balanceAmount)
+    })
 }
 
 function showMessage(type, msg, time){
