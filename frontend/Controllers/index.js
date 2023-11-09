@@ -5,10 +5,23 @@ async function render(view) {
     main.innerHTML = await (await fetch(`Views/${view}.html`)).text()
 
     if (view == 'introduction') getStatistics()
+    if (view == 'register') setRegisterProperly()
 }
 
-function showMessage(msg){
+function showMessage(type, msg, time){
     let alertBox = document.querySelector('#alertBox')
-    alertBox.innerHTML = `<strong>Hiba!</strong> ${msg}`
-    alertBox.classList.remove('d-none')
+    let htmlPrefix = ''
+    alertBox.classList.add('d-flex')
+
+    switch (type) {
+        case 'error':
+            htmlPrefix = '<font color="#F6795E"><strong>Hiba!</strong></font>'
+            break
+        case 'info':
+            htmlPrefix = '<font color="#5EB6F6"><strong>Információ!</strong></font>'
+            break
+    }       
+    
+    alertBox.innerHTML = `${htmlPrefix} ${msg}`
+    setTimeout(() => { alertBox.classList.remove('d-flex') }, time * 1000)
 }

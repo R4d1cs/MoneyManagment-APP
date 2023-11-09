@@ -25,6 +25,27 @@ body:before {
     scale: 1.2;
 }
 
+#alertBox {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.3rem;
+
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: auto;
+    height: 3rem;
+
+    padding: 0.3rem 0.5rem;
+    color: white;
+    border-radius: 0.3rem;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .main-wrapper {
     position: absolute;
     top: 50%;
