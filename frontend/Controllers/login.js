@@ -1,4 +1,4 @@
-function doneButtonCheck() {
+function loginButtonCheck() {
     let loginButton = document.querySelector('#loginButton')
     let userName = document.querySelector('#loginName').value
     let userPassword = document.querySelector('#loginPassword').value

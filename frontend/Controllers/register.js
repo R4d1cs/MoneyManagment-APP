@@ -1,4 +1,4 @@
-function doneButtonCheck() {
+function registerButtonCheck() {
     let registerButton = document.querySelector('#registerButton')
     let userName = document.querySelector('#registerName').value
     let userEmail = document.querySelector('#registerEmail').value
