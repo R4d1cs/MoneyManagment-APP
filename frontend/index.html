@@ -15,9 +15,12 @@
     <div id="alertBox"></div>
     <div class="main-wrapper">
         <header>
-            <div class="appName" onclick="render('introduction');">
-              <img id="appLogo" src="Assets/img/appLogo.png">
-              PÉNZÜGYEK KEZELÉSE
+            <div class="appName">
+              <img id="appLogo" src="Assets/img/appLogo.png" onclick="render('introduction')">
+              <div class="pageTitleWithBalance">
+                <span id="pageTitle">PÉNZÜGYEK KEZELÉSE</span>
+                <span id="balanceNum">Egyenleg: 12.500.600 Ft</span>
+              </div>
               <span id="pageName"></span>
             </div>
             <nav class="navbar navbar-expand-lg">

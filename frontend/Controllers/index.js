@@ -2,18 +2,28 @@ const serverUrl = 'http://localhost:3000'
 
 let loggedInMenu = document.querySelector('#LoggedInMenu')
 let loggedOutMenu = document.querySelector('#LoggedOutMenu')
+let balanceNum = document.querySelector('#balanceNum')
 let pageName = document.querySelector('#pageName')
 
-loggedUser = JSON.parse(sessionStorage.getItem('customerUser'));
+loggedUser = JSON.parse(sessionStorage.getItem('customerUser'))
+
+// Ideiglenes
+let HUF_Egyenleg = new Intl.NumberFormat('hu-HU', {
+    style: 'currency',
+    currency: 'HUF',
+})
 
 if (loggedUser != null) {
     loggedInMenu.classList.remove('d-none')
     loggedOutMenu.classList.add('d-none')
+    balanceNum.classList.remove('d-none')
+    balanceNum.innerHTML = `Egyenleg: ${HUF_Egyenleg.format(0)}` // Itt a nulla helyett, majd a bevétel és a kiadás eredémnye kell, hogy kerüljön.
     pageName.classList.remove('d-none')
     pageName.innerHTML = `(${loggedUser.ID}) ${loggedUser.name}`
 } else {
     loggedInMenu.classList.add('d-none')
     loggedOutMenu.classList.remove('d-none')
+    balanceNum.classList.add('d-none')
     pageName.classList.add('d-none')
     render('login')
 }

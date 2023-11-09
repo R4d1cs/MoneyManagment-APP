@@ -92,6 +92,15 @@ header .appName #appLogo {
     aspect-ratio: 1;
 }
 
+header .appName .pageTitleWithBalance {
+    display: flex;
+    flex-direction: column;
+}
+
+header .appName .pageTitleWithBalance #balanceNum {
+    font-size: 0.85rem;
+}
+
 header .appName #pageName {
     display: flex;
     align-items: center;
