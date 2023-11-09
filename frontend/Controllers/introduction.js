@@ -7,6 +7,6 @@ function getStatistics() {
         axios.get(`${serverUrl}/items`).then(res => {
             dataNum.innerText = res.data.length
         });
-    }, 500)
+    }, 150)
 }
 getStatistics()

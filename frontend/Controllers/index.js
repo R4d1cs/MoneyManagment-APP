@@ -5,7 +5,6 @@ async function render(view) {
     main.innerHTML = await (await fetch(`Views/${view}.html`)).text()
 
     if (view == 'introduction') getStatistics()
-    if (view == 'register') setRegisterProperly()
 }
 
 function showMessage(type, msg, time){
@@ -19,6 +18,9 @@ function showMessage(type, msg, time){
             break
         case 'info':
             htmlPrefix = '<font color="#5EB6F6"><strong>Információ!</strong></font>'
+            break
+        case 'success':
+            htmlPrefix = '<font color="green"><strong>Sikeres!</strong></font>'
             break
     }       
     
