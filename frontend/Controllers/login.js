@@ -1,3 +1,6 @@
+const loginTimer = 2
+const logutTimer = 1
+
 function loginButtonCheck() {
     let loginButton = document.querySelector('#loginButton')
     let userName = document.querySelector('#loginName').value
@@ -26,22 +29,21 @@ function loginUser() {
             return
         }
 
-        showMessage('success', 'Sikeres bejelentkezés!', 7)
+        showMessage('success', 'Sikeres bejelentkezés!', loginTimer)
 
         setTimeout(() => {
             sessionStorage.setItem('customerUser', JSON.stringify(res.data[0]));
             document.location.href = 'index.html'
-            getStatistics()
-        }, 1500)
+        }, loginTimer * 1000)
     })
 }
 
 function logoutUser(){
-    showMessage('success', 'Sikeres kijelentkezés!', 7)
+    showMessage('success', 'Sikeres kijelentkezés!', logutTimer)
 
     setTimeout(() => {
         sessionStorage.removeItem('customerUser')
         document.location.href = 'index.html'
         getStatistics()
-    }, 1500)
+    }, logutTimer * 1000)
 }

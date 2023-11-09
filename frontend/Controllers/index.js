@@ -8,7 +8,6 @@ loggedUser = JSON.parse(sessionStorage.getItem('customerUser'));
 if (loggedUser != null) {
     loggedInMenu.classList.remove('d-none')
     loggedOutMenu.classList.add('d-none')
-    render('profile')
 } else {
     loggedInMenu.classList.add('d-none')
     loggedOutMenu.classList.remove('d-none')
