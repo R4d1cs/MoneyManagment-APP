@@ -14,13 +14,13 @@ function showMessage(type, msg, time){
 
     switch (type) {
         case 'error':
-            htmlPrefix = '<font color="#F6795E"><strong>Hiba!</strong></font>'
+            htmlPrefix = '<font color="#F6795E">Hiba!</font>'
             break
         case 'info':
-            htmlPrefix = '<font color="#5EB6F6"><strong>Információ!</strong></font>'
+            htmlPrefix = '<font color="#5EB6F6">Információ!</font>'
             break
         case 'success':
-            htmlPrefix = '<font color="green"><strong>Sikeres!</strong></font>'
+            htmlPrefix = '<font color="#89DB57">Sikeres!</font>'
             break
     }       
     
