@@ -17,7 +17,7 @@ if (loggedUser != null) {
     loggedInMenu.classList.remove('d-none')
     loggedOutMenu.classList.add('d-none')
     balanceNum.classList.remove('d-none')
-    balanceNum.innerHTML = `Egyenleg: ${HUF_Egyenleg.format(0)}` // Itt a nulla helyett, majd a bevétel és a kiadás eredémnye kell, hogy kerüljön.
+    balanceNum.innerHTML = `${HUF_Egyenleg.format(1500000)}` // Itt a nulla helyett, majd a bevétel és a kiadás eredémnye kell, hogy kerüljön.
     pageName.classList.remove('d-none')
     pageName.innerHTML = `(${loggedUser.ID}) ${loggedUser.name}`
 } else {
