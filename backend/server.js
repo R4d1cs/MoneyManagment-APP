@@ -21,7 +21,21 @@ var pool  = mysql.createPool({
 
 // ENDPOINTS
 
-// Get number of data in table
+// Login in user
+app.post('/loginUser', (req, res)=>{
+
+  let table = 'users';
+  let field1 = 'name';
+  let field2 = 'passwd';
+  let value1 = req.body.name;
+  let value2 = req.body.passwd;
+
+  pool.query(`SELECT * FROM ${table} WHERE ${field1}='${value1}' AND ${field2}='${value2}'`, (err, results)=>{
+    sendResults(table, err, results, req, res);
+  });
+});
+
+// GET number of data in table
 app.get('/:table', (req, res) => {
   let table = req.params.table;
     pool.query(`SELECT * FROM ${table}`, (err, results) => {
@@ -41,36 +55,8 @@ app.get('/:table/:field/:op/:value', (req, res)=>{
   }
 
   pool.query(`SELECT * FROM ${table} WHERE ${field}${op}'${value}'`, (err, results)=>{
-    sendResults(table, err, results, req, res, 'sent from');
+    sendResults(table, err, results, req, res);
   });
-});
-
-// PATCH record in table by field (update)
-app.patch('/:table/:field/:op/:value', (req, res) => {
-  let table = req.params.table;
-  let field = req.params.field;
-  let value = req.params.value;
-  let op = getOperator(req.params.op);
-
-  if (op == ' like '){
-    value = `%${value}%`;
-  }
-
-  let values = Object.values(req.body);
-  let fields = Object.keys(req.body);
-
-  let sql = '';
-  for(i=0; i< values.length; i++){
-    sql += fields[i] + `='` + values[i] + `'`;
-    if (i< values.length-1) {
-      sql += ',';
-    } 
-  }
-
-  pool.query(`UPDATE ${table} SET ${sql} WHERE ${field}${op}'${value}'`, (err, results)=>{
-    sendResults(table, err, results, req, res, 'updated in');
-  });
-
 });
 
 // POST new record to table
@@ -81,12 +67,12 @@ app.post('/:table', (req, res)=>{
   let fields = Object.keys(req.body).join(',');
 
   pool.query(`INSERT INTO ${table} (${fields}) VALUES(${values})`, (err, results)=>{
-    sendResults(table, err, results, req, res, 'insert into');
+    sendResults(table, err, results, req, res);
   });
 });
 
 // Send results to the client
-function sendResults(table, err, results, req, res, msg){
+function sendResults(table, err, results, req, res){
   if (err){
     res.status(500).send(err.sqlMessage);
   }else{
