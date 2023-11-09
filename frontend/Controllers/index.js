@@ -2,15 +2,19 @@ const serverUrl = 'http://localhost:3000'
 
 let loggedInMenu = document.querySelector('#LoggedInMenu')
 let loggedOutMenu = document.querySelector('#LoggedOutMenu')
+let pageName = document.querySelector('#pageName')
 
 loggedUser = JSON.parse(sessionStorage.getItem('customerUser'));
 
 if (loggedUser != null) {
     loggedInMenu.classList.remove('d-none')
     loggedOutMenu.classList.add('d-none')
+    pageName.classList.remove('d-none')
+    pageName.innerHTML = `(${loggedUser.ID}) ${loggedUser.name}`
 } else {
     loggedInMenu.classList.add('d-none')
     loggedOutMenu.classList.remove('d-none')
+    pageName.classList.add('d-none')
     render('login')
 }
 
