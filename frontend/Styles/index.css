@@ -1,6 +1,13 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../Assets/fonts/Roboto-Medium.ttf');
+}
+
 body {
     overflow: hidden;
     background-color: white;
+
+    font-family: Roboto;
 }
 
 body:before {
