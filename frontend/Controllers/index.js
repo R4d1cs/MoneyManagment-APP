@@ -1,4 +1,7 @@
 const serverUrl = 'http://localhost:3000'
+const loginTimer = 2 // Másodperc
+const logutTimer = 1 // Másodperc
+const chartTimer = 150 // Milliszekundum
 
 let loggedInMenu = document.querySelector('#LoggedInMenu')
 let loggedOutMenu = document.querySelector('#LoggedOutMenu')

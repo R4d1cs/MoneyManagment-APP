@@ -59,7 +59,7 @@ function getChart() {
                         }
                     }
                 },
-                responsive: true,
+                responsive: false,
                 scales: {
                   x: {
                     stacked: true,
@@ -70,5 +70,5 @@ function getChart() {
                 }
             }
         })
-    }, 100)
+    }, chartTimer)
 }

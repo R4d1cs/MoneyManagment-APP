@@ -1,5 +1,10 @@
 #IncomeAndIssuenceChart {
-    position: relative;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+
+    box-shadow:#2e2e2e55 0rem 0rem 2rem;
 }

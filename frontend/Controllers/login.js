@@ -1,6 +1,3 @@
-const loginTimer = 2
-const logutTimer = 1
-
 function loginButtonCheck() {
     let loginButton = document.querySelector('#loginButton')
     let userName = document.querySelector('#loginName').value
