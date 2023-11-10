@@ -32,7 +32,18 @@ function getChart() {
                     borderColor: '#F6795E',
                     backgroundColor: '#F6795E'
                 }]
-            }
+            },
+            options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    stacked: true,
+                  },
+                  y: {
+                    stacked: true
+                  }
+                }
+              }
         })
     }, 100)
 }
