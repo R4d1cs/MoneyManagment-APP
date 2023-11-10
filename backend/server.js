@@ -70,6 +70,16 @@ app.post('/:table', (req, res) => {
   })
 })
 
+// DELETE one record by ID
+app.delete('/:table/:id', (req, res) => {
+  let table = req.params.table;
+  let id = req.params.id;
+  
+  pool.query(`DELETE FROM ${table} WHERE ID=${id}`, (err, results) => {
+    sendResults(table, err, results, req, res, 'sent from');
+  });
+});
+
 // Send results to the client
 function sendResults(table, err, results, req, res) {
   if (err){

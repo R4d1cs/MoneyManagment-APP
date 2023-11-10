@@ -1,7 +1,12 @@
 const serverUrl = 'http://localhost:3000'
 const loginTimer = 2 // Másodperc
 const logutTimer = 1 // Másodperc
+const tableTimer = 100 // Milliszekundum
 const chartTimer = 150 // Milliszekundum
+
+const redColor = '#F6795E'
+const greenColor = '#89DB57'
+const blueColor = '#5EB6F6'
 
 let loggedInMenu = document.querySelector('#LoggedInMenu')
 let loggedOutMenu = document.querySelector('#LoggedOutMenu')
@@ -55,7 +60,7 @@ function setBalance() {
         balanceAmount = totalIncome - totalIssuence
 
         if (balanceAmount < 0) {
-            balanceNum.innerHTML = `<font color='#F6795E'>${HUF_Egyenleg.format(balanceAmount)}</font>`
+            balanceNum.innerHTML = `<font color=${redColor}'>${HUF_Egyenleg.format(balanceAmount)}</font>`
             return
         }
 
@@ -70,13 +75,13 @@ function showMessage(type, msg, time){
 
     switch (type) {
         case 'error':
-            htmlPrefix = '<font color="#F6795E">Hiba!</font>'
+            htmlPrefix = `<font color="${redColor}">Hiba</font>`
             break
         case 'info':
-            htmlPrefix = '<font color="#5EB6F6">Információ!</font>'
+            htmlPrefix = `<font color="${blueColor}">Információ</font>`
             break
         case 'success':
-            htmlPrefix = '<font color="#89DB57">Sikeres!</font>'
+            htmlPrefix = `<font color="${greenColor}">Sikeres</font>`
             break
     }       
     

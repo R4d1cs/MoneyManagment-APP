@@ -1,0 +1,71 @@
+.table-wrapper {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    height: 5rem;
+
+    overflow: auto;
+}
+
+.table-wrapper thead, .table-wrapper tbody, .table-wrapper tfoot #tableSumField {
+    text-align: center;
+}
+
+.table-wrapper thead {
+    border-bottom: 0.17rem solid slategray;
+    text-shadow: 0.055rem 0.055rem 0.187rem rgba(0, 0, 0, 0.29);
+}
+
+.table-wrapper th:nth-child(1), .table-wrapper td:nth-child(1) {
+    width: 20%;
+}
+
+.table-wrapper th:nth-child(2), .table-wrapper td:nth-child(2) {
+    width: 20%;
+}
+
+.table-wrapper th:nth-child(3), .table-wrapper td:nth-child(3) {
+    width: 25%;
+}
+
+.table-wrapper th:nth-child(4), .table-wrapper td:nth-child(4) {
+    width: 15%;
+}
+
+.table-wrapper th:nth-child(5), .table-wrapper td:nth-child(5) {
+    width: 20%;
+}
+
+.table-wrapper #editDataButton {
+    text-decoration: none;
+    color: black;
+}
+
+.table-wrapper #editDataButton::before {
+    content: '🖊️';
+    text-decoration: none;
+    color: black;
+}
+
+.table-wrapper #deleteDataButton {
+    text-decoration: none;
+    color: black;
+}
+
+.table-wrapper #deleteDataButton::before {
+    content: '🗑️';
+    text-decoration: none;
+    color: black;
+}
+
+.table-wrapper td {
+    color: rgb(63, 63, 63);
+}
+
+.table-wrapper tfoot {
+    border-top: 0.17rem solid slategray;
+    text-shadow: 0.055rem 0.055rem 0.187rem rgba(0, 0, 0, 0.29);
+}
