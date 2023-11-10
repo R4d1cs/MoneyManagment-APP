@@ -135,6 +135,24 @@ main {
 
     width: 100%;
     height: 90%;
+}
 
-    overflow-y: scroll;
+::-webkit-scrollbar-track
+{
+	border-radius: 0.3rem;
+    -webkit-box-shadow: inset 0 0 0.5rem rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 0.6rem;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 0.3rem;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
