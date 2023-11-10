@@ -3,14 +3,15 @@ function getChart() {
     let colors = []
 
     axios.get(`${serverUrl}/items/userID/eq/${loggedUser.ID}`).then((res) => {
+        res.data.sort((a,b) => a.date.localeCompare(b.date))
         res.data.forEach((item) => {
             if (item.type.toLowerCase() === 'kiadás') {
-                datas.push({x: item.date.toString().split("T")[0], y: item.amount * -1})
+                datas.push({x: item.date.toString().split("T")[0], y: item.amount * -1, tooltip: item.tag})
                 colors.push('#F6795E')
                 return
             }
 
-            datas.push({x: item.date.toString().split("T")[0], y: item.amount})
+            datas.push({x: item.date.toString().split("T")[0], y: item.amount, tooltip: item.tag})
             colors.push('#89DB57')
         })
     })
@@ -44,9 +45,12 @@ function getChart() {
                         callbacks: {
                             label: function(context) {
                                 let label = context.dataset.label || ' '
+
+                                let dataMoneyFormat = HUF_Egyenleg.format(Math.abs(context.parsed.y))
+                                let dataTag = context.dataset.data[context.dataIndex].tooltip
                                 
                                 if (context.parsed.y !== null) {
-                                    label += HUF_Egyenleg.format(Math.abs(context.parsed.y))
+                                    label += `${dataMoneyFormat} (${dataTag})`
                                 }
 
                                 return label
