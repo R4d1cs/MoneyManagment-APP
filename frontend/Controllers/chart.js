@@ -6,12 +6,12 @@ function getChart() {
         res.data.sort((a,b) => a.date.localeCompare(b.date))
         res.data.forEach((item) => {
             if (item.type.toLowerCase() === 'kiadás') {
-                datas.push({x: item.date.toString().split("T")[0], y: item.amount * -1, tooltip: item.tag})
+                datas.push({x: item.date.toString().split("T")[0], y: item.amount * -1, type: item.type, tooltip: item.tag})
                 colors.push('#F6795E')
                 return
             }
 
-            datas.push({x: item.date.toString().split("T")[0], y: item.amount, tooltip: item.tag})
+            datas.push({x: item.date.toString().split("T")[0], y: item.amount, type: item.type, tooltip: item.tag})
             colors.push('#89DB57')
         })
     })
@@ -45,12 +45,13 @@ function getChart() {
                         callbacks: {
                             label: function(context) {
                                 let label = context.dataset.label || ' '
-
+                                
+                                let dataType = context.dataset.data[context.dataIndex].type
                                 let dataMoneyFormat = HUF_Egyenleg.format(Math.abs(context.parsed.y))
                                 let dataTag = context.dataset.data[context.dataIndex].tooltip
                                 
                                 if (context.parsed.y !== null) {
-                                    label += `${dataMoneyFormat} (${dataTag})`
+                                    label += `${dataType}: ${dataMoneyFormat} (${dataTag})`
                                 }
 
                                 return label
