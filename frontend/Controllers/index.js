@@ -33,8 +33,6 @@ async function render(view) {
     main.innerHTML = await (await fetch(`Views/${view}.html`)).text()
 
     if (view == 'introduction') getStatistics()
-
-    setBalance()
 }
 
 function setBalance() {
