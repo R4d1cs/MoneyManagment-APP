@@ -1,8 +1,8 @@
 const serverUrl = 'http://localhost:3000'
 const loginTimer = 2 // Másodperc
 const logutTimer = 1 // Másodperc
-const tableTimer = 100 // Milliszekundum
-const chartTimer = 150 // Milliszekundum
+const tableTimer = 50 // Milliszekundum
+const chartTimer = 100 // Milliszekundum
 
 const redColor = '#F6795E'
 const greenColor = '#89DB57'

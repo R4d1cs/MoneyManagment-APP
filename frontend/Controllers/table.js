@@ -38,5 +38,6 @@ function deleteData(itemID) {
         showMessage('success', 'A kiváltaszott adat törölve!', 3)
         render('table')
         getTableData()
+        setBalance()
     })
 }
