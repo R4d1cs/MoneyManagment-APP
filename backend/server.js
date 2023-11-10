@@ -16,8 +16,8 @@ var pool  = mysql.createPool({
     user            : process.env.DBUSER,
     password        : process.env.DBPASS,
     database        : process.env.DBNAME,
-    timezone: 'UTC'
-  })
+    timezone        : 'UTC'
+})
 
 // ENDPOINTS
 
