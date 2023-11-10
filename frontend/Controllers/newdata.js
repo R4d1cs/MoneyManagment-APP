@@ -1,3 +1,8 @@
+function setCurrentDate(){
+    let date = document.querySelector('#newdataDate')
+    date.max =  new Date().toISOString().split("T")[0]
+}
+
 function newDataButtonCheck() {
     let newDataButton = document.querySelector('#newdataButton')
     let newDate = document.querySelector('#newdataDate')
