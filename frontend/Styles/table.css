@@ -15,8 +15,8 @@
 }
 
 .table-wrapper thead {
+    border: 0.17rem solid slategray;
     border-bottom: 0.17rem solid slategray;
-    text-shadow: 0.055rem 0.055rem 0.187rem rgba(0, 0, 0, 0.29);
 }
 
 .table-wrapper tbody {
@@ -24,6 +24,7 @@
     height: 93%;
     overflow-y: auto;
     overflow-x: hidden;
+    text-shadow: 0.055rem 0.055rem 0.087rem rgba(0, 0, 0, 0.99);
 }
 
 .table-wrapper thead, .table-wrapper tbody tr, .table-wrapper tfoot tr {
@@ -76,9 +77,13 @@
 
 .table-wrapper td {
     color: rgb(63, 63, 63);
+    border: 0.1rem solid #dddddd;
+    border-right: 0.2rem solid #dddddd;
+    border-left: 0.2rem solid #dddddd;
+    background-color: #f1f1f1;
 }
 
 .table-wrapper tfoot {
-    border-top: 0.17rem solid slategray;
-    text-shadow: 0.055rem 0.055rem 0.187rem rgba(0, 0, 0, 0.29);
+    border: 0.17rem solid slategray;
+    border-top: 0.2rem solid slategray;
 }
