@@ -23,7 +23,7 @@ function getTableData(){
                         <td>${item.type.toLowerCase() == 'kiadás' ? `<font color="${redColor}">Kiadás</font>` : `<font color="${greenColor}">Bevétel</font>`}</td>
                         <td>${item.tag}</td>
                         <td>${moneyAmount < 0 ? `<font color="${redColor}">${HUF_Egyenleg.format(moneyAmount)}</font>` : `<font color="${greenColor}">${HUF_Egyenleg.format(moneyAmount)}</font>`}</td>
-                        <td><button type="button" class="btn btn-link" id="editDataButton" onclick="editData()"></button><button type="button" class="btn btn-link" id="deleteDataButton" onclick="deleteData(${item.ID})"></button></td>
+                        <td><button type="button" class="btn btn-link" id="editDataButton" onclick="render('newdataedit'); setEditData(${item.ID})"></button><button type="button" class="btn btn-link" id="deleteDataButton" onclick="deleteData(${item.ID})"></button></td>
                     </tr>
                 `
             })

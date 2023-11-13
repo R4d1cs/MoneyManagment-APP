@@ -30,7 +30,7 @@ app.post('/loginUser', (req, res) => {
   let value2 = req.body.passwd
 
   pool.query(`SELECT * FROM ${table} WHERE ${field1}='${value1}' AND ${field2}='${value2}'`, (err, results) => {
-    sendResults(table, err, results, req, res)
+    sendResults(err, results, res)
   })
 })
 
@@ -38,7 +38,7 @@ app.post('/loginUser', (req, res) => {
 app.get('/:table', (req, res) => {
   let table = req.params.table
     pool.query(`SELECT * FROM ${table}`, (err, results) => {
-      sendResults(table, err, results, req, res, 'sent from')
+      sendResults(err, results, res)
     })
 })
 
@@ -54,7 +54,7 @@ app.get('/:table/:field/:op/:value', (req, res) => {
   }
 
   pool.query(`SELECT * FROM ${table} WHERE ${field}${op}'${value}'`, (err, results) => {
-    sendResults(table, err, results, req, res)
+    sendResults(err, results, res)
   })
 })
 
@@ -66,22 +66,49 @@ app.post('/:table', (req, res) => {
   let fields = Object.keys(req.body).join(',')
 
   pool.query(`INSERT INTO ${table} (${fields}) VALUES(${values})`, (err, results) => {
-    sendResults(table, err, results, req, res)
+    sendResults(err, results, res)
+  })
+})
+
+// PATCH record in table by field (update)
+app.patch('/:table/:field/:op/:value', (req, res) => {
+  let table = req.params.table
+  let field = req.params.field
+  let value = req.params.value
+  let op = getOperator(req.params.op)
+ 
+  if (op == ' like '){
+    value = `%${value}%`
+  }
+ 
+  let values = Object.values(req.body)
+  let fields = Object.keys(req.body)
+ 
+  let sql = ''
+  for(i=0; i< values.length; i++){
+    sql += fields[i] + `='` + values[i] + `'`
+    if (i< values.length-1) {
+      sql += ','
+    }
+  }
+ 
+  pool.query(`UPDATE ${table} SET ${sql} WHERE ${field}${op}'${value}'`, (err, results) => {
+    sendResults(err, results, res)
   })
 })
 
 // DELETE one record by ID
 app.delete('/:table/:id', (req, res) => {
-  let table = req.params.table;
-  let id = req.params.id;
+  let table = req.params.table
+  let id = req.params.id
   
   pool.query(`DELETE FROM ${table} WHERE ID=${id}`, (err, results) => {
-    sendResults(table, err, results, req, res, 'sent from');
-  });
-});
+    sendResults(table, results, res)
+  })
+})
 
 // Send results to the client
-function sendResults(table, err, results, req, res) {
+function sendResults(err, results, res) {
   if (err){
     res.status(500).send(err.sqlMessage)
   } else {

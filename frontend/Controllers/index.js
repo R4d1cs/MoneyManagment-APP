@@ -4,8 +4,8 @@ const logutTimer = 1 // Másodperc
 const tableTimer = 50 // Milliszekundum
 const chartTimer = 100 // Milliszekundum
 
-const redColor = '#F6795E'
-const greenColor = '#89DB57'
+const redColor = '#F6795E', darkRedColor = '#95594B'
+const greenColor = '#89DB57', darkGreenColor = '#618A47'
 const blueColor = '#5EB6F6'
 
 let loggedInMenu = document.querySelector('#LoggedInMenu')

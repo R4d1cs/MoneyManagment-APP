@@ -1,0 +1,10 @@
+<section class="newdataedit-wrapper">
+    <h4>Új adat módosítása</h4>
+    <div class="newdataedit-inputs" onkeyup="newDataEditButtonCheck()">
+        <input type="date" class="form-control" id="newdataEditDate" placeholder="Dátum" onclick="setCurrentEditDate()" onchange="newDataEditButtonCheck()">
+        <input type="text" class="form-control" id="newdataEditType" placeholder="Bevétel/Kiadás">
+        <input type="number" class="form-control" id="newdataEditAmount" placeholder="Érték (Forintban értetődő)" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        <input type="text" class="form-control" id="newdataEditTag" placeholder="Pl.: tankolás, bevásárlás, stb.">
+        <button type="button" class="btn btn-primary" id="newdataEditButton" onclick="editNewData()">Új adat módosítása</button>
+    </div>
+</section>
