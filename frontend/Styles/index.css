@@ -129,6 +129,10 @@ header .navbar .nav-link {
     font-weight: 400;
 }
 
+header .navbar .nav-link:focus {
+    color: rgb(255, 231, 179) !important;
+}
+
 main {
     position: relative;
     top: 1rem;
