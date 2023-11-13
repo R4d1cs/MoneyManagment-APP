@@ -37,26 +37,29 @@ function setEditData(ID) {
                 newEditTag.value = item.tag
             });
         })
-    }, 100)
+    }, tableTimer * 0.5)
 }
 
 function editNewData() {
-    let newEditDate = document.querySelector('#newdataEditDate')
-    let newEditType = document.querySelector('#newdataEditType')
-    let newEditAmount = document.querySelector('#newdataEditAmount')
-    let newEditTag = document.querySelector('#newdataEditTag')
+    setTimeout(() => {
+        let newEditDate = document.querySelector('#newdataEditDate')
+        let newEditType = document.querySelector('#newdataEditType')
+        let newEditAmount = document.querySelector('#newdataEditAmount')
+        let newEditTag = document.querySelector('#newdataEditTag')
 
-    let editData = {
-        date: newEditDate.value,
-        type: newEditType.value,
-        amount: newEditAmount.value,
-        tag: newEditTag.value
-    }
+        let editData = {
+            date: newEditDate.value,
+            type: newEditType.value,
+            amount: newEditAmount.value,
+            tag: newEditTag.value
+        }
 
-    axios.patch(`${serverUrl}/items/ID/eq/${selectedID}`, editData).then(() => {
-        showMessage('success', 'Sikeresen módosítottad a kiválaszott adatot!', 5)
-        render('table')
-        getTableData()
-        setBalance()
-    });
+        axios.patch(`${serverUrl}/items/ID/eq/${selectedID}`, editData).then(() => {
+            showMessage('success', 'Sikeresen módosítottad a kiválaszott adatot!', 5)
+        
+            render('table')
+            getTableData()
+            setBalance()
+        })
+    }, tableTimer)
 }

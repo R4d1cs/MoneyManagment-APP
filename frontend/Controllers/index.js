@@ -1,6 +1,7 @@
 const serverUrl = 'http://localhost:3000'
 const loginTimer = 2 // Másodperc
 const logutTimer = 1 // Másodperc
+<<<<<<< HEAD
 const tableTimer = 50 // Milliszekundum
 <<<<<<< HEAD
 const chartTimer = 100 // Milliszekundum
@@ -8,6 +9,11 @@ const chartTimer = 100 // Milliszekundum
 const chartTimer = 50 // Milliszekundum
 const calendarTimer = 50 // Milliszekundum
 >>>>>>> e621c7c... 'Header' javítva, amelyik menüpont kivan választva az átszíneződik.
+=======
+const tableTimer = 150 // Milliszekundum
+const chartTimer = 150 // Milliszekundum
+const calendarTimer = 150 // Milliszekundum
+>>>>>>> 050a9d0... Késleltetésekkel a hibák kiküszöbölve.
 
 const redColor = '#F6795E', darkRedColor = '#95594B'
 const greenColor = '#89DB57', darkGreenColor = '#618A47'
