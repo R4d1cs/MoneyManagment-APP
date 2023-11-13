@@ -36,6 +36,7 @@ function getTableData(){
 function deleteData(itemID) {
     axios.delete(`${serverUrl}/items/${itemID}`).then(res => {
         showMessage('success', 'A kiváltaszott adat törölve!', 3)
+        
         render('table')
         getTableData()
         setBalance()

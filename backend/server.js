@@ -103,7 +103,7 @@ app.delete('/:table/:id', (req, res) => {
   let id = req.params.id
   
   pool.query(`DELETE FROM ${table} WHERE ID=${id}`, (err, results) => {
-    sendResults(table, results, res)
+    sendResults(err, results, res)
   })
 })
 
